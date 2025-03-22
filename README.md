@@ -72,7 +72,7 @@
         <p>（装傻ing~）</p>
     </div>
     <div id="scene3" class="hidden">
-        <h1>要不要宝宝猜猜看呀~？</h1>
+        <h1>宝宝要不要猜猜看呀~？</h1>
         <div class="options">
             <div class="option" id="birthday">我的生日</div>
             <div class="option" id="dont-know">不知道</div>
@@ -80,12 +80,12 @@
     </div>
     <div id="scene4" class="hidden">
         <h1>生日快乐！</h1>
-        <img src="https://i.imgur.com/3QZQZQY.png" alt="千层蛋糕" class="cake">
-        <audio id="birthday-song" src="https://www.soundjay.com/happy-birthday-songs/happy-birthday-song-01.mp3" autoplay></audio>
+        <img src="pic1.png" alt="千层蛋糕" class="cake">
+        <audio id="birthday-song" src="song1.mp3" autoplay></audio>
     </div>
     <div id="scene5" class="hidden">
         <h1>不对！再选多一次！</h1>
-        <img src="https://i.imgur.com/4QZQZQY.png" alt="动漫女孩" class="anime-girl">
+        <img src="pic2.png" alt="动漫女孩" class="anime-girl">
     </div>
 
     <!-- 樱花瓣 -->
@@ -128,6 +128,24 @@
             document.getElementById('scene3').classList.add('hidden');
             document.getElementById('scene5').classList.remove('hidden');
         });
+    </script>
+
+    <!-- Git 命令提示 -->
+    <script>
+        /*
+        将代码上传到 GitHub 的步骤：
+        1. 打开终端或命令行，进入项目文件夹。
+        2. 运行以下命令：
+           git init
+           git add .
+           git commit -m "Initial commit"
+           git branch -M main
+           git remote add origin https://github.com/你的用户名/你的仓库名.git
+           git push -u origin main
+        3. 启用 GitHub Pages：
+           - 进入仓库的 Settings -> Pages。
+           - 选择分支（例如 main），然后点击 Save。
+        */
     </script>
 </body>
 </html>
