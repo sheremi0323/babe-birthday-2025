@@ -79,7 +79,7 @@
         </div>
     </div>
     <div id="scene4" class="hidden">
-        <h1>生日快乐！我的宝宝~</h1>
+        <h1>嘿嘿~生日快乐我的宝宝~！</h1>
         <img src="pic1.png" alt="千层蛋糕" class="cake">
         <audio id="birthday-song" src="song1.mp3" autoplay></audio>
     </div>
