@@ -72,7 +72,7 @@
         .message {
             max-width: 600px;
             margin: 20px auto;
-            font-size: 20px;
+            font-size: 20px; /* 恢复字体大小 */
             line-height: 1.6;
             color: #8b4513;
             text-align: left;
@@ -163,15 +163,17 @@
             "祝宝宝+1岁=+健康 +幸福 +学业 +友情 = 一帆风顺+学业有成+前程似锦=未来可期~！宝宝累了想休息就看看身边所有的美好人事物吧~生活不是为了赶路啊~你不需要向别人证明自己，因为我相信你可以的~！"
         ];
         let messageIndex = 0;
+        let typingInterval;
 
         document.getElementById('scene4').addEventListener('click', () => {
             document.getElementById('scene4').classList.add('hidden');
             document.getElementById('scene4-1').classList.remove('hidden');
 
-            // 停止第一首歌，播放第二首歌
+            // 停止第一首歌，播放第二首歌并设置音量为 0.5
             const song1 = document.getElementById('song1');
             const song2 = document.getElementById('song2');
             song1.pause();
+            song2.volume = 0.5; // 设置音量为 50%
             song2.play();
 
             showNextMessage();
@@ -183,12 +185,32 @@
 
         function showNextMessage() {
             if (messageIndex < messages.length) {
-                messageContainer.innerHTML = `<p>${messages[messageIndex]}</p>`; // 更新内容
+                // 清空当前内容
+                messageContainer.innerHTML = '';
+
+                // 开始打字机效果
+                typeMessage(messages[messageIndex]);
                 messageIndex++;
             } else {
                 // 如果已经是最后一段，可以做一些其他操作，比如回到主页面
                 alert("已经是最后一段啦~");
             }
+        }
+
+        function typeMessage(message) {
+            let charIndex = 0;
+            clearInterval(typingInterval); // 清除之前的定时器
+
+            typingInterval = setInterval(() => {
+                if (charIndex < message.length) {
+                    // 逐字显示
+                    messageContainer.innerHTML += message.charAt(charIndex);
+                    charIndex++;
+                } else {
+                    // 停止打字机效果
+                    clearInterval(typingInterval);
+                }
+            }, 50); // 每 50 毫秒显示一个字
         }
 
         document.getElementById('dont-know').addEventListener('click', () => {
