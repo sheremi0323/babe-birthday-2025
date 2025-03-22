@@ -69,6 +69,14 @@
             width: 200px;
             margin-top: 20px;
         }
+        .message {
+            max-width: 600px;
+            margin: 20px auto;
+            font-size: 20px;
+            line-height: 1.6;
+            color: #8b4513;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -90,7 +98,9 @@
     <div id="scene4" class="hidden">
         <h1>嘿嘿~生日快乐我的宝宝~！</h1>
         <img src="pic1.png" alt="千层蛋糕" class="cake">
-        <audio id="birthday-song" src="song1.mp3"></audio>
+    </div>
+    <div id="scene4-1" class="hidden">
+        <div class="message" id="message-container"></div>
     </div>
     <div id="scene5" class="hidden">
         <h1>什么啦！再选多一次！</h1>
@@ -99,6 +109,9 @@
 
     <!-- 秋叶 -->
     <div id="leaf-container"></div>
+
+    <!-- 音频 -->
+    <audio id="background-music" src="song1.mp3" loop></audio>
 
     <script>
         // 秋叶飘落效果
@@ -135,10 +148,41 @@
             document.getElementById('scene4').classList.remove('hidden');
             currentScene = 4;
 
-            // 播放生日歌曲
-            const birthdaySong = document.getElementById('birthday-song');
-            birthdaySong.play();
+            // 播放背景音乐
+            const backgroundMusic = document.getElementById('background-music');
+            backgroundMusic.play();
         });
+
+        // 点击 scene4 的任意位置显示长篇大论
+        const messageContainer = document.getElementById('message-container');
+        const messages = [
+            "宝宝19岁生日快乐鸭🦆~！这一天又又又来咯~虽然宝宝讲不要庆祝什么的。。不过我尊重你的选择咯~只限今年哦！有没有惊喜呀今年生日是两个link没有长篇大论？看宝宝将期待那现在开始咯~",
+            "这些年确确实实发生很多事情啦有好有坏（我觉得好的事情还是比较多的~）经历事情就是给我们的考验！看我们是不是真心相爱还是像f4 yt跟我讲的我们3个月后就会分（这句话到现在差不多要3年咯~）",
+            "知道宝宝最近很迷茫，觉得自己的存在的意义是什么。。这个世界会变好吗？等通知。不过我要讲的依然是！宝宝做的任何决定，我都会站在你旁边。没有特地站在你前面挡着光，也没有特地跟在你身后保护影子。“先去做，做成一堆狗屎，再慢慢去改，一个粗糙的开始，就是最好的开始” 享受过程，丰收结果~",
+            "祝宝宝+1岁=+健康 +幸福 +学业 +友情 = 一帆风顺+学业有成+前程似锦=未来可期~！宝宝累了想休息就看看身边所有的美好人事物吧~生活不是为了赶路啊~你不需要向别人证明自己，因为我相信你可以的~！"
+        ];
+        let messageIndex = 0;
+
+        document.getElementById('scene4').addEventListener('click', () => {
+            document.getElementById('scene4').classList.add('hidden');
+            document.getElementById('scene4-1').classList.remove('hidden');
+            showNextMessage();
+        });
+
+        document.getElementById('scene4-1').addEventListener('click', () => {
+            showNextMessage();
+        });
+
+        function showNextMessage() {
+            if (messageIndex < messages.length) {
+                messageContainer.innerHTML = `<p>${messages[messageIndex]}</p>`; // 更新内容
+                messageIndex++;
+            } else {
+                // 如果已经是最后一段，可以做一些其他操作，比如回到主页面
+                alert("已经是最后一段啦~");
+            }
+        }
+
         document.getElementById('dont-know').addEventListener('click', () => {
             document.getElementById('scene3').classList.add('hidden');
             document.getElementById('scene5').classList.remove('hidden');
