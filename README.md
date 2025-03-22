@@ -111,7 +111,8 @@
     <div id="leaf-container"></div>
 
     <!-- 音频 -->
-    <audio id="background-music" src="song1.mp3" loop></audio>
+    <audio id="song1" src="song1.mp3"></audio>
+    <audio id="song2" src="song2.mp3"></audio>
 
     <script>
         // 秋叶飘落效果
@@ -148,9 +149,9 @@
             document.getElementById('scene4').classList.remove('hidden');
             currentScene = 4;
 
-            // 播放背景音乐
-            const backgroundMusic = document.getElementById('background-music');
-            backgroundMusic.play();
+            // 播放第一首歌
+            const song1 = document.getElementById('song1');
+            song1.play();
         });
 
         // 点击 scene4 的任意位置显示长篇大论
@@ -166,6 +167,13 @@
         document.getElementById('scene4').addEventListener('click', () => {
             document.getElementById('scene4').classList.add('hidden');
             document.getElementById('scene4-1').classList.remove('hidden');
+
+            // 停止第一首歌，播放第二首歌
+            const song1 = document.getElementById('song1');
+            const song2 = document.getElementById('song2');
+            song1.pause();
+            song2.play();
+
             showNextMessage();
         });
 
