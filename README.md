@@ -10,24 +10,33 @@
             padding: 0;
             font-family: 'Comic Sans MS', cursive, sans-serif;
             text-align: center;
-            color: #ff1493;
-            background: linear-gradient(45deg, #ffb6c1, #ff69b4);
+            color: #8b4513; /* 秋叶棕色 */
+            background: linear-gradient(45deg, #ff8c00, #d2691e); /* 秋天色调 */
             height: 100vh;
             overflow: hidden;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
-        h1, p {
+        h1 {
             margin: 20px;
-            font-size: 24px;
+            font-size: 36px; /* 放大字体 */
         }
-        .sakura {
+        p {
+            margin: 20px;
+            font-size: 28px; /* 放大字体 */
+        }
+        .leaf {
             position: absolute;
             top: -10%;
             animation: fall linear infinite;
+            font-size: 24px; /* 秋叶大小 */
         }
         @keyframes fall {
             to {
-                transform: translateY(100vh);
+                transform: translateY(100vh) rotate(360deg); /* 秋叶旋转下落 */
             }
         }
         .hidden {
@@ -42,14 +51,14 @@
         .option {
             padding: 10px 20px;
             background-color: #fff;
-            border: 2px solid #ff1493;
+            border: 2px solid #8b4513; /* 秋叶棕色 */
             border-radius: 10px;
             cursor: pointer;
             font-size: 18px;
-            color: #ff1493;
+            color: #8b4513; /* 秋叶棕色 */
         }
         .option:hover {
-            background-color: #ff1493;
+            background-color: #8b4513; /* 秋叶棕色 */
             color: #fff;
         }
         .cake {
@@ -88,22 +97,23 @@
         <img src="pic2.png" alt="动漫女孩" class="anime-girl">
     </div>
 
-    <!-- 樱花瓣 -->
-    <div id="sakura-container"></div>
+    <!-- 秋叶 -->
+    <div id="leaf-container"></div>
 
     <script>
-        // 樱花瓣效果
-        const sakuraContainer = document.getElementById('sakura-container');
-        function createSakura() {
-            const sakura = document.createElement('div');
-            sakura.innerHTML = '🌸';
-            sakura.classList.add('sakura');
-            sakura.style.left = Math.random() * 100 + 'vw';
-            sakura.style.animationDuration = Math.random() * 3 + 2 + 's';
-            sakuraContainer.appendChild(sakura);
-            setTimeout(() => sakura.remove(), 5000);
+        // 秋叶飘落效果
+        const leafContainer = document.getElementById('leaf-container');
+        function createLeaf() {
+            const leaf = document.createElement('div');
+            leaf.innerHTML = '🍂'; // 秋叶
+            leaf.classList.add('leaf');
+            leaf.style.left = Math.random() * 100 + 'vw';
+            leaf.style.animationDuration = Math.random() * 3 + 2 + 's';
+            leaf.style.fontSize = Math.random() * 20 + 16 + 'px'; // 随机大小
+            leafContainer.appendChild(leaf);
+            setTimeout(() => leaf.remove(), 5000);
         }
-        setInterval(createSakura, 300);
+        setInterval(createLeaf, 300);
 
         // 场景切换
         let currentScene = 1;
@@ -129,6 +139,13 @@
             document.getElementById('scene3').classList.add('hidden');
             document.getElementById('scene5').classList.remove('hidden');
             currentScene = 5;
+        });
+
+        // 点击 scene5 返回 scene3
+        document.getElementById('scene5').addEventListener('click', () => {
+            document.getElementById('scene5').classList.add('hidden');
+            document.getElementById('scene3').classList.remove('hidden');
+            currentScene = 3;
         });
     </script>
 </body>
