@@ -123,29 +123,13 @@
         document.getElementById('birthday').addEventListener('click', () => {
             document.getElementById('scene3').classList.add('hidden');
             document.getElementById('scene4').classList.remove('hidden');
+            currentScene = 4;
         });
         document.getElementById('dont-know').addEventListener('click', () => {
             document.getElementById('scene3').classList.add('hidden');
             document.getElementById('scene5').classList.remove('hidden');
+            currentScene = 5;
         });
-    </script>
-
-    <!-- Git 命令提示 -->
-    <script>
-        /*
-        将代码上传到 GitHub 的步骤：
-        1. 打开终端或命令行，进入项目文件夹。
-        2. 运行以下命令：
-           git init
-           git add .
-           git commit -m "Initial commit"
-           git branch -M main
-           git remote add origin https://github.com/你的用户名/你的仓库名.git
-           git push -u origin main
-        3. 启用 GitHub Pages：
-           - 进入仓库的 Settings -> Pages。
-           - 选择分支（例如 main），然后点击 Save。
-        */
     </script>
 </body>
 </html>
