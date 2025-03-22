@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -90,7 +90,7 @@
     <div id="scene4" class="hidden">
         <h1>嘿嘿~生日快乐我的宝宝~！</h1>
         <img src="pic1.png" alt="千层蛋糕" class="cake">
-        <audio id="birthday-song" src="song1.mp3" autoplay></audio>
+        <audio id="birthday-song" src="song1.mp3"></audio>
     </div>
     <div id="scene5" class="hidden">
         <h1>什么啦！再选多一次！</h1>
@@ -134,6 +134,10 @@
             document.getElementById('scene3').classList.add('hidden');
             document.getElementById('scene4').classList.remove('hidden');
             currentScene = 4;
+
+            // 播放生日歌曲
+            const birthdaySong = document.getElementById('birthday-song');
+            birthdaySong.play();
         });
         document.getElementById('dont-know').addEventListener('click', () => {
             document.getElementById('scene3').classList.add('hidden');
@@ -148,5 +152,7 @@
             currentScene = 3;
         });
     </script>
+</body>
+</html>
 </body>
 </html>
