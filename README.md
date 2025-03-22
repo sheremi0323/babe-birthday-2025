@@ -169,11 +169,11 @@
             document.getElementById('scene4').classList.add('hidden');
             document.getElementById('scene4-1').classList.remove('hidden');
 
-            // 停止第一首歌，播放第二首歌并设置音量为 0.5
+            // 停止第一首歌，播放第二首歌并设置音量为 0.3
             const song1 = document.getElementById('song1');
             const song2 = document.getElementById('song2');
             song1.pause();
-            song2.volume = 0.5; // 设置音量为 50%
+            song2.volume = 0.3; // 设置音量为 30%
             song2.play();
 
             showNextMessage();
