@@ -84,7 +84,7 @@
         <audio id="birthday-song" src="song1.mp3" autoplay></audio>
     </div>
     <div id="scene5" class="hidden">
-        <h1>不对！再选多一次！</h1>
+        <h1>什么啦！再选多一次！</h1>
         <img src="pic2.png" alt="动漫女孩" class="anime-girl">
     </div>
 
