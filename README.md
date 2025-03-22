@@ -105,7 +105,7 @@
         const leafContainer = document.getElementById('leaf-container');
         function createLeaf() {
             const leaf = document.createElement('div');
-            leaf.innerHTML = '🍂'; // 秋叶
+            leaf.innerHTML = '🍁'; // 秋叶
             leaf.classList.add('leaf');
             leaf.style.left = Math.random() * 100 + 'vw';
             leaf.style.animationDuration = Math.random() * 3 + 2 + 's';
