@@ -145,7 +145,7 @@
             currentScene = 5;
         });
 
-        // 点击 scene5 返回 scene3
+        // 点击 scene5 的任意位置返回 scene3
         document.getElementById('scene5').addEventListener('click', () => {
             document.getElementById('scene5').classList.add('hidden');
             document.getElementById('scene3').classList.remove('hidden');
